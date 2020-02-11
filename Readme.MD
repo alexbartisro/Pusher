@@ -8,6 +8,6 @@ Requirements:
 Running:
 * Clone, Open Project, Run
 or
-* Download the latest version from [here](https://github.com/trusk89/Pusher/tags)
+* Download the latest precompiled version from [here](https://github.com/trusk89/Pusher/releases)
 
 Have fun and enjoy!
