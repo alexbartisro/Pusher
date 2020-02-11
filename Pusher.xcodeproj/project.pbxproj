@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		FA69268323F1E874006692BB /* Dictionary-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA69268223F1E874006692BB /* Dictionary-Extension.swift */; };
+		FABAA93823F33352002FC4C6 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABAA93723F33352002FC4C6 /* TextView.swift */; };
+		FABAA93C23F335E9002FC4C6 /* ScrollableTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABAA93B23F335E9002FC4C6 /* ScrollableTextView.xib */; };
 		FAF7A38323F1CBBC0019F888 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF7A38223F1CBBC0019F888 /* AppDelegate.swift */; };
 		FAF7A38523F1CBBC0019F888 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF7A38423F1CBBC0019F888 /* ContentView.swift */; };
 		FAF7A38723F1CBBE0019F888 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF7A38623F1CBBE0019F888 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		FA69268223F1E874006692BB /* Dictionary-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary-Extension.swift"; sourceTree = "<group>"; };
+		FABAA93723F33352002FC4C6 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		FABAA93B23F335E9002FC4C6 /* ScrollableTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollableTextView.xib; sourceTree = "<group>"; };
 		FAF7A37F23F1CBBC0019F888 /* Pusher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pusher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF7A38223F1CBBC0019F888 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAF7A38423F1CBBC0019F888 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 				FAF7A38E23F1CBBE0019F888 /* Info.plist */,
 				FAF7A38F23F1CBBE0019F888 /* Pusher.entitlements */,
 				FAF7A38823F1CBBE0019F888 /* Preview Content */,
+				FABAA93723F33352002FC4C6 /* TextView.swift */,
+				FABAA93B23F335E9002FC4C6 /* ScrollableTextView.xib */,
 			);
 			path = Pusher;
 			sourceTree = "<group>";
@@ -96,6 +102,8 @@
 			dependencies = (
 			);
 			name = Pusher;
+			packageProductDependencies = (
+			);
 			productName = Pusher;
 			productReference = FAF7A37F23F1CBBC0019F888 /* Pusher.app */;
 			productType = "com.apple.product-type.application";
@@ -124,6 +132,8 @@
 				Base,
 			);
 			mainGroup = FAF7A37623F1CBBC0019F888;
+			packageReferences = (
+			);
 			productRefGroup = FAF7A38023F1CBBC0019F888 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +150,7 @@
 			files = (
 				FAF7A38D23F1CBBE0019F888 /* Main.storyboard in Resources */,
 				FAF7A38A23F1CBBE0019F888 /* Preview Assets.xcassets in Resources */,
+				FABAA93C23F335E9002FC4C6 /* ScrollableTextView.xib in Resources */,
 				FAF7A38723F1CBBE0019F888 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +166,7 @@
 				FA69268323F1E874006692BB /* Dictionary-Extension.swift in Sources */,
 				FAF7A38323F1CBBC0019F888 /* AppDelegate.swift in Sources */,
 				FAF7A39623F1CC8A0019F888 /* ShellInteractor.swift in Sources */,
+				FABAA93823F33352002FC4C6 /* TextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +314,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ro.bartis.Pusher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -325,6 +338,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ro.bartis.Pusher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

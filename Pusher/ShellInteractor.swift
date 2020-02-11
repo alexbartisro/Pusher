@@ -16,6 +16,9 @@ class ShellInteractor: ObservableObject {
     @Published public var badgeNumber: String = ""
     @Published public var messageId: String = ""
     @Published public var bundleId: String = ""
+    @Published public var simulatorsFound = true
+    @Published public var basicMode = true
+    @Published public var apnsContent = ""
     
     private var runningSimId = ""
     private var filePath: String {
@@ -27,16 +30,46 @@ class ShellInteractor: ObservableObject {
     }
     
     //MARK: - Public
-    public func sendNotification() {
-        let dictionary = generateAPNs()
-        let jsonData = dictionary.jsonData
+    public func generateNotification(completion: () -> Void) {
+        var jsonData: Data?
+        
+        if basicMode {
+            jsonData = generateAPNs().jsonData
+        } else {
+            jsonData = apnsContent.data(using: String.Encoding.utf8)
+        }
+        
+        guard let data = jsonData else {
+            return
+        }
+        
+        guard let json = try? JSONSerialization.jsonObject(with: data), JSONSerialization.isValidJSONObject(json) else {
+            shellOutput = "Input data is not valid"
+            return
+        }
         
         let fileManager = FileManager.default
-        if fileManager.createFile(atPath: filePath, contents: jsonData, attributes: nil) {
-            shellOutput = "Notification sent!"
+        if fileManager.createFile(atPath: filePath, contents: data, attributes: nil) {
+            completion()
         } else {
             shellOutput = "There was an error writing to the temporary folder"
         }
+    }
+    
+    public func sendNotification() {
+        guard !bundleId.isEmpty else {
+            shellOutput = "Bundle id cannot be empty"
+            
+            return
+        }
+        
+        let write = bash(command: "xcrun", arguments: ["simctl", "push", "\(runningSimId)", "\(bundleId)", filePath ])
+        print(write)
+        shellOutput = write
+    }
+    
+    public func refreshSimulators() {
+        getSimulators()
     }
     
     //MARK: - Private
@@ -56,10 +89,16 @@ class ShellInteractor: ObservableObject {
                 shellOutput = "\(sim)"
                 
                 if let rangeOfRunningSimId = String(sim).range(of: "[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}", options: .regularExpression) {
+                    simulatorsFound = true
                     let simString = String(sim)
                     runningSimId = String(simString[rangeOfRunningSimId])
                 }
             }
+        }
+        
+        if runningSimId.isEmpty {
+            shellOutput = "No booted simulators found"
+            simulatorsFound = false
         }
         
         print(runningSimId)
