@@ -14,7 +14,9 @@ class ShellInteractor: ObservableObject {
     @Published var shellOutput: String = ""
     
     @Published public var badgeNumber: String = ""
-    @Published public var messageId: String = ""
+    @Published public var title: String = ""
+    @Published public var subtitle: String = ""
+    @Published public var body: String = ""
     @Published public var bundleId: String = ""
     @Published public var simulatorsFound = true
     @Published public var basicMode = true
@@ -74,10 +76,13 @@ class ShellInteractor: ObservableObject {
     
     //MARK: - Private
     private func generateAPNs() -> [String: Any] {
+        let alertDict = ["title":title,
+        "subtitle":subtitle,
+        "body": body] as [String: Any]
         let apsDict = ["badge":badgeNumber,
-                       "sound" : "bingbong.aiff"] as [String : Any]
-        return ["aps":apsDict,
-                "messageID":messageId] as [String : Any]
+                       "sound" : "bingbong.aiff",
+                       "alert": alertDict] as [String : Any]
+        return ["aps":apsDict] as [String : Any]
     }
     
     private func getSimulators() {
@@ -100,8 +105,6 @@ class ShellInteractor: ObservableObject {
             shellOutput = "No booted simulators found"
             simulatorsFound = false
         }
-        
-        print(runningSimId)
     }
     
     private func bash(command: String, arguments: [String]) -> String {

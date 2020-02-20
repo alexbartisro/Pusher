@@ -15,24 +15,32 @@ struct ContentView: View {
         ScrollView {
             VStack {
                 HStack {
-                    Text("Enter target bundle identifier:")
-                    TextField("com.mycompany.app", text: $shellInteractor.bundleId)
+                    Text("Enter target bundle identifier:").frame(maxWidth: 230, alignment: .leading)
+                    TextField("com.mycompany.app", text: $shellInteractor.bundleId).frame(maxWidth: 230, alignment: .leading)
                 }.padding()
                 
                 if $shellInteractor.basicMode.wrappedValue {
                     HStack {
-                        Text("Enter icon badge count:")
-                        TextField("0", text: $shellInteractor.badgeNumber)
+                        Text("Enter icon badge count:").frame(maxWidth: 230, alignment: .leading)
+                        TextField("0", text: $shellInteractor.badgeNumber).frame(maxWidth: 230, alignment: .leading)
+                        }.padding()
+                    HStack {
+                        Text("Enter notification title:").frame(maxWidth: 230, alignment: .leading)
+                        TextField("Notification Title", text: $shellInteractor.title).frame(maxWidth: 230, alignment: .leading)
                     }.padding()
                     HStack {
-                        Text("Enter message identifier:")
-                        TextField("ABCDEFGHIJ", text: $shellInteractor.messageId)
+                        Text("Enter notification subtitle:").frame(maxWidth: 230, alignment: .leading)
+                        TextField("Notification Subtitle", text: $shellInteractor.subtitle).frame(maxWidth: 230, alignment: .leading)
+                    }.padding()
+                    HStack {
+                        Text("Enter notification body:").frame(maxWidth: 230, alignment: .leading)
+                        TextField("Notification body", text: $shellInteractor.body).frame(maxWidth: 230, alignment: .leading)
                     }.padding()
                 } else {
                     HStack {
                         Text("Enter raw json for notification content")
                         ScrollView {
-                            TextView(text: $shellInteractor.apnsContent).frame(minWidth: 100, idealWidth: 300, maxWidth: 400, minHeight: 44, idealHeight: 100, maxHeight: 400, alignment: .center)
+                            TextView(text: $shellInteractor.apnsContent).frame(minWidth: 100, idealWidth: 300, maxWidth: 400, minHeight: 44, idealHeight: 100, maxHeight: 400, alignment: .leading)
                         }
                     }.padding()
                 }
