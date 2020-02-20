@@ -31,8 +31,10 @@ Running:
 		}
 		``` 
  * Click `SEND` 
- 
+
+
 Demo:
+
 ![Pusher Demo](demo/demo.gif)
 
 Have fun and enjoy!
