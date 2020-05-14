@@ -37,4 +37,9 @@ Demo:
 
 ![Pusher Demo](demo/demo.gif)
 
-Have fun and enjoy!
+### If you like this project, please consider starring it. Thanks!
+
+#### If you really like it, consider buying me a taco!
+
+[![Taco money](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=J3Z3SVTJ72GJL&currency_code=EUR&source=url)
+[![Taco money](https://img.shields.io/badge/patreon-donate-yellow.svg)](https://www.patreon.com/bePatron?u=4249937)
